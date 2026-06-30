@@ -72,7 +72,8 @@ void SaveSystem::readFromDisk() {
     if (!f.open(QIODevice::ReadOnly)) return;
     QJsonDocument doc = QJsonDocument::fromJson(f.readAll());
     if (!doc.isObject()) return;
-    for (auto it = doc.object().begin(); it != doc.object().end(); ++it)
+    QJsonObject root = doc.object();
+    for (auto it = root.begin(); it != root.end(); ++it)
         if (it.value().isObject())
             profiles_[it.key()] = fromJson(it.value().toObject());
 }
