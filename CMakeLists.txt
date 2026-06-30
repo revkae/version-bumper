@@ -12,5 +12,5 @@ if(APPLE)
   include_directories(SYSTEM "${MACOS_SDK_PATH}/usr/include/c++/v1")
 endif()
 
-add_executable(VersionBumper main.cpp mainwindow.cpp)
+add_executable(VersionBumper main.cpp mainwindow.cpp savesystem.cpp)
 target_link_libraries(VersionBumper Qt6::Core Qt6::Widgets)
